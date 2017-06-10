@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="css/forInLoop.css" />
+    <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="js/forInLoop.js"></script>
+</head>
+<body>
+    <h1>
+        Understanding literal objects and arrays in "for in" loops.
+    </h1>
+    <p>
+        Given...
+    </p>
+    <div class="visualize">
+        <div class="code">
+            <pre>
+
+    function printValues(thing) {
+        console.clear();
+
+        for (var value in thing)
+        {
+            console.log(value);
+            console.log(thing[value]);
+        }
+    }
+
+            </pre>
+        </div>
+    </div>
+
+
+
+
+    <p style="text-decoration: underline; color: blue;" onclick="jovton.printValues(person, this);">
+        What does a person object with simple properties contain?
+    </p>
+    <div class="visualize">
+        <div class="code">
+            <pre>    
+    var person = {
+        name: "Veronica",
+        age: 35,
+        height:"1.6 meters",
+        sex: "female"
+    }
+
+    printValues(person);        
+            </pre>
+        </div>
+        <div class="console">
+            <textarea>
+            </textarea>
+        </div>
+    </div>
+
+
+
+
+
+    <p style="text-decoration: underline; color: blue;" onclick="jovton.printValues(arrayWithObjects, this);">
+        What does an array of objects with just one property contain?
+    </p>
+    <div class="visualize">
+        <div class="code">
+            <pre>
+
+    var arrayWithObjects = [];
+
+    arrayWithObjects.push({name: "Veronica"});
+    arrayWithObjects.push({age: 36});
+    arrayWithObjects.push({height: "1.4 meters"});
+    arrayWithObjects.push({sex: "yes please!"});
+        
+    printValues(arrayWithObjects);
+
+            </pre>
+        </div>
+        <div class="console">
+            <textarea>
+            </textarea>
+        </div>
+    </div>
+    <p style="text-decoration: underline; color: blue;" onclick="jovton.printValues(arrayOfSimpleValues, this);">
+        What does an array of simple values contain?
+    </p>
+    <div class="visualize">
+        <div class="code">
+            <pre>
+    var arrayOfSimpleValues = [];
+
+    arrayOfSimpleValues.push("name");
+    arrayOfSimpleValues.push("Veronica");
+    arrayOfSimpleValues.push("age");
+    arrayOfSimpleValues.push(34);
+    arrayOfSimpleValues.push("height");
+    arrayOfSimpleValues.push("1.4 meters");
+    arrayOfSimpleValues.push("sex")
+    arrayOfSimpleValues.push("female");
+
+    printValues(arrayOfSimpleValues);
+            </pre>
+        </div>
+        <div class="console">
+            <textarea>
+            </textarea>
+        </div>
+    </div>
+
+
+
+
+    <p>
+        <strong>
+            Moral of the story?
+        </strong>
+    </p>
+    <p style="margin-bottom: 100px;">
+        Use <code style="font-style:italic;"> for (int i=0; i < theArray.length; i++) </code> to iterate over an array, but <code style="font-style:italic;"> for (var property in object) </code> to iterate over an object's properties.
+    </p>
+</body>
+</html>
